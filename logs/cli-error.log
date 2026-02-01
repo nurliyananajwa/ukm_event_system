@@ -1,0 +1,50 @@
+2026-01-26 05:58:35 error: [Cake\Database\Exception\DatabaseException] Could not describe columns on `guest_types` in C:\laragon\www\ukm_event_system\vendor\cakephp\cakephp\src\Database\Schema\MysqlSchemaDialect.php on line 127
+Stack Trace:
+- CORE\src\Database\Schema\SchemaDialect.php:427
+- CORE\src\Database\Schema\Collection.php:87
+- CORE\src\ORM\Table.php:526
+- ROOT\vendor\cakephp\bake\src\Command\ModelCommand.php:117
+- ROOT\vendor\cakephp\bake\src\Command\ModelCommand.php:100
+- ROOT\vendor\cakephp\bake\src\Command\AllCommand.php:120
+- CORE\src\Console\BaseCommand.php:201
+- CORE\src\Console\CommandRunner.php:339
+- CORE\src\Console\CommandRunner.php:175
+- ROOT\bin\cake.php:10
+- [main]:
+
+Caused by: [Cake\Database\Exception\QueryException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ukm_event.guest_types' doesn't exist
+Query: SHOW FULL COLUMNS FROM `guest_types` in C:\laragon\www\ukm_event_system\vendor\cakephp\cakephp\src\Database\Driver.php on line 385
+Stack Trace:
+- CORE\src\Database\Driver.php:332
+- CORE\src\Database\Driver.php:298
+- CORE\src\Database\Schema\MysqlSchemaDialect.php:125
+- CORE\src\Database\Schema\SchemaDialect.php:427
+- CORE\src\Database\Schema\Collection.php:87
+- CORE\src\ORM\Table.php:526
+- ROOT\vendor\cakephp\bake\src\Command\ModelCommand.php:117
+- ROOT\vendor\cakephp\bake\src\Command\ModelCommand.php:100
+- ROOT\vendor\cakephp\bake\src\Command\AllCommand.php:120
+- CORE\src\Console\BaseCommand.php:201
+- CORE\src\Console\CommandRunner.php:339
+- CORE\src\Console\CommandRunner.php:175
+- ROOT\bin\cake.php:10
+- [main]:
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ukm_event.guest_types' doesn't exist in C:\laragon\www\ukm_event_system\vendor\cakephp\cakephp\src\Database\Statement\Statement.php on line 144
+Stack Trace:
+- CORE\src\Database\Statement\Statement.php:144
+- CORE\src\Database\Driver.php:330
+- CORE\src\Database\Driver.php:298
+- CORE\src\Database\Schema\MysqlSchemaDialect.php:125
+- CORE\src\Database\Schema\SchemaDialect.php:427
+- CORE\src\Database\Schema\Collection.php:87
+- CORE\src\ORM\Table.php:526
+- ROOT\vendor\cakephp\bake\src\Command\ModelCommand.php:117
+- ROOT\vendor\cakephp\bake\src\Command\ModelCommand.php:100
+- ROOT\vendor\cakephp\bake\src\Command\AllCommand.php:120
+- CORE\src\Console\BaseCommand.php:201
+- CORE\src\Console\CommandRunner.php:339
+- CORE\src\Console\CommandRunner.php:175
+- ROOT\bin\cake.php:10
+- [main]:
+
