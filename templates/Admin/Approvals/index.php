@@ -6,6 +6,16 @@ $q = (string)($q ?? '');
 $status = (string)($status ?? 'Pending');
 
 $tabs = ['Pending','Approved','Rejected','All'];
+
+$this->Paginator->setTemplates([
+  'number'       => '<a class="pg-link" href="{{url}}">{{text}}</a>',
+  'current'      => '<span class="pg-link is-active">{{text}}</span>',
+  'prevActive'   => '<a class="pg-btn" rel="prev" href="{{url}}">‹ Prev</a>',
+  'prevDisabled' => '<span class="pg-btn is-disabled">‹ Prev</span>',
+  'nextActive'   => '<a class="pg-btn" rel="next" href="{{url}}">Next ›</a>',
+  'nextDisabled' => '<span class="pg-btn is-disabled">Next ›</span>',
+]);
+
 ?>
 
 <style>
@@ -38,6 +48,51 @@ $tabs = ['Pending','Approved','Rejected','All'];
 .link:hover{ text-decoration:underline; }
 
 .empty{ border:1px dashed #cbd5e1; background: linear-gradient(#ffffff, #f8fafc); border-radius:16px; padding:24px; color:#64748b; font-size:14px; text-align:center; margin-top:12px; }
+
+.pager{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:12px;
+}
+
+.pg-nums{ display:flex; gap:6px; flex-wrap:wrap; }
+
+.pg-link, .pg-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:36px;
+  height:34px;
+  padding:0 12px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  color:#0f172a;
+  font-weight:800;
+  font-size:13px;
+  text-decoration:none;
+  transition:.15s;
+}
+
+.pg-link:hover, .pg-btn:hover{
+  transform:translateY(-1px);
+  background:#f8fafc;
+}
+
+.pg-link.is-active{
+  border:none;
+  color:#fff;
+  background:linear-gradient(135deg,#2563eb,#0ea5e9);
+  box-shadow:0 10px 22px rgba(37,99,235,.18);
+}
+
+.pg-btn.is-disabled{
+  opacity:.5;
+  cursor:not-allowed;
+  transform:none;
+}
 </style>
 
 <div class="page-head">
@@ -109,8 +164,12 @@ unset($tmp);
     </tbody>
   </table>
 
-  <div style="margin-top:10px;">
-    <?= $this->Paginator->numbers() ?>
+  <div class="pager">
+  <?= $this->Paginator->prev() ?>
+  <div class="pg-nums">
+    <?= $this->Paginator->numbers(['modulus' => 5]) ?>
   </div>
+  <?= $this->Paginator->next() ?>
+</div>
 <?php endif; ?>
 </div>
