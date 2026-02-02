@@ -106,12 +106,12 @@ PDF includes:
 
 ## 🛠️ Tech Stack
 
-* **Framework:** CakePHP 5
-* **Language:** PHP 8+
-* **Database:** MySQL
-* **Frontend:** HTML, CSS (custom UI)
-* **PDF Generation:** DOMPDF
-* **Architecture:** MVC (Model-View-Controller)
+* **Backend:** PHP 8.1
+* **Framework:** CakePHP
+* **Frontend:** Bootstrap, HTML, CSS, JavaScript
+* **Database:** MySQL 
+* **Cloud-based platform:** Github
+* **Browser:** Google Chrome
 
 ---
 
