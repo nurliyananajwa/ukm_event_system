@@ -1,53 +1,215 @@
-# CakePHP Application Skeleton
+# 🎓 UKM Event Management System
 
-![Build Status](https://github.com/cakephp/app/actions/workflows/ci.yml/badge.svg?branch=5.x)
-[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
-[![PHPStan](https://img.shields.io/badge/PHPStan-level%208-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
+**IMS566 – Group Project**
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 5.x.
+## 📌 Project Overview
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+The **UKM Event Management System** is a web-based application developed to manage event submissions, approvals, and administration workflows within a university environment.
+This system is designed to streamline interactions between **Organizers** and **Administrators**, ensuring an efficient, structured, and auditable approval process.
 
-## Installation
+## 📐 Academic Alignment
 
-1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+This project fulfills the IMS566 Group Project requirements by implementing:
 
-If Composer is installed globally, run
+- MVC-based web application architecture
+- Role-based access control
+- Relational database design with normalization
+- CRUD operations for core entities
+- Approval workflow with audit trail
+- Report generation (PDF export)
+
+All features were developed and tested according to the provided project guideline.
+
+---
+
+## 👥 User Roles & Access
+
+### 1️⃣ Organizer
+
+Organizers are responsible for submitting and managing event applications.
+
+**Key Functions:**
+
+* Register & login
+* Create event submissions
+* Add guests (mandatory)
+* Upload supporting documents (optional)
+* View approval status (Pending / Approved / Rejected)
+* View admin comments
+* Export event details to PDF (submission copy)
+
+---
+
+### 2️⃣ Admin
+
+Admins manage approvals and system data.
+
+**Key Functions:**
+
+* Review and approve / reject event submissions
+* Add comments during approval
+* View all events and organizers
+* Manage venues (CRUD)
+* Manage users (Admin & Organizer)
+* Export event approval details to PDF
+* Dashboard with statistics & quick actions
+
+---
+
+## 🧩 System Modules
+
+### 📋 Event Management
+
+* Event creation with date, time, venue, objectives, scope, and type
+* One-to-one relationship with approvals
+* One-to-many relationship with guests and documents
+
+### ✅ Event Approval
+
+* Approval status tracking:
+
+  * Pending
+  * Approved
+  * Rejected
+* Admin comments recorded
+* Approval timestamp stored
+* Organizer can view final decision
+
+### 🏢 Venue Management (Admin)
+
+* Add, view, edit, delete venues
+* Venue capacity and type tracking
+* View events associated with a venue
+
+### 👤 User Management (Admin)
+
+* Create Admin and Organizer accounts
+* Role-based access control
+* Secure authentication using CakePHP Authentication plugin
+
+### 📄 Export to PDF
+
+Available at:
+
+* Organizer: Event view page (submission copy)
+* Admin: Approval view page (official approval copy)
+
+PDF includes:
+
+* Event details
+* Organizer information
+* Guest list
+* Documents list (if any)
+* Approval status
+
+---
+
+## 🛠️ Tech Stack
+
+* **Framework:** CakePHP 5
+* **Language:** PHP 8+
+* **Database:** MySQL
+* **Frontend:** HTML, CSS (custom UI)
+* **PDF Generation:** DOMPDF
+* **Architecture:** MVC (Model-View-Controller)
+
+---
+
+## 🗂️ Database Structure (Summary)
+
+Main tables:
+
+* `users`
+* `roles`
+* `events`
+* `approvals`
+* `venues`
+* `requests`
+* `guests`
+* `documents`
+* `document_types`
+* `guest_types`
+
+Relational integrity is enforced using foreign keys.
+
+---
+
+## 🔐 Authentication & Security
+
+* Role-based access control
+* Protected routes using CakePHP Authentication
+* Password hashing using bcrypt
+* Admin-only access for approvals and system management
+
+---
+
+## 📊 Dashboard Features
+
+### Organizer Dashboard
+
+* Total events
+* Pending / Approved / Rejected count
+* Recent submissions
+* Status breakdown
+* Announcements
+
+### Admin Dashboard
+
+* Total events
+* Pending approvals
+* Total organizers
+* Total venues
+* Quick access to:
+
+  * Event approvals
+  * Venue management
+  * User management
+  * All events
+
+---
+
+## 📑 Project Status
+
+✔ Core features completed
+✔ CRUD operations implemented
+✔ Approval workflow functional
+✔ PDF export implemented
+✔ UI polished for academic submission
+
+---
+
+## 🚀 Installation (Local)
+
+1. Clone the repository
 
 ```bash
-composer create-project --prefer-dist cakephp/app
+git clone https://github.com/yourusername/ukm-event-system.git
 ```
 
-In case you want to use a custom app dir name (e.g. `/myapp/`):
+2. Install dependencies
 
 ```bash
-composer create-project --prefer-dist cakephp/app myapp
+composer install
 ```
 
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
+3. Configure database
+
+* Import provided SQL file
+* Update `config/app_local.php`
+
+4. Run server
 
 ```bash
-bin/cake server -p 8765
+bin/cake server
 ```
+---
 
-Then visit `http://localhost:8765` to see the welcome page.
+## ✨ Notes
 
-## Update
+This system is developed for academic purposes and demonstrates:
 
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
-
-## Configuration
-
-Read and edit the environment specific `config/app_local.php` and set up the
-`'Datasources'` and any other configuration relevant for your application.
-Other environment agnostic settings can be changed in `config/app.php`.
-
-## Layout
-
-The app skeleton uses [Milligram](https://milligram.io/) (v1.3) minimalist CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+* MVC architecture
+* Database design & relationships
+* Role-based system design
+* Approval workflow implementation
+* PDF reporting
