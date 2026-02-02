@@ -295,7 +295,7 @@ $defaultDocs = [
         <?= $this->Form->control('objectives', [
             'label' => 'Objectives of the Event',
             'type' => 'textarea',
-            'placeholder' => 'Describe the objectives (as in the form)...'
+            'placeholder' => 'Describe the objectives...'
         ]) ?>
     </div>
 </div>
